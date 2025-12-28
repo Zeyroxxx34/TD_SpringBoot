@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,6 +15,8 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class VideoGame {
+
+    //Champs
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +25,11 @@ public class VideoGame {
     private Date releaseDate;
     private String image;
 
+    //Un jeu vidéo peut avoir plusieurs avis
     @OneToMany(mappedBy = "videoGame")
     private List<Review> reviews;
 
+    // Un jeu vidéo appartient à une ou plusieurs catégories
     @ManyToMany
     @JoinTable(
         name = "videoGame_category",

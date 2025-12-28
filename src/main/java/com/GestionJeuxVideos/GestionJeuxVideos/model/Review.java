@@ -3,7 +3,6 @@ package com.GestionJeuxVideos.GestionJeuxVideos.model;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +11,8 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Review {
+
+    //Champs
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +21,7 @@ public class Review {
     private String comment;
     private Date date;
 
+    //Chaque avis est lié à un seul jeu vidéo
     @ManyToOne
     @JoinColumn(name = "videoGame_id")
     private VideoGame videoGame;

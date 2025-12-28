@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionJeuxVideos.GestionJeuxVideos.security.JwtUtil;
 
+//Login et génération de token
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -23,6 +24,7 @@ public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    //Authentifie l'utilisateur et renvoie un token
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody LoginRequest request) {
         authenticationManager.authenticate(

@@ -23,26 +23,31 @@ public class VideoGameController {
  @Autowired
  private VideoGameService videoGameService;
 
+ //Récupérer la liste de tous les jeux vidéos
  @GetMapping("/public/videoGames")
  public List<VideoGame> getAllVideoGames() {
      return videoGameService.getAllVideoGames();
  }
 
+ //Récupérer un jeu vidéo par son ID
  @GetMapping("/public/videoGame")
  public VideoGame getVideoGameById(@RequestParam Long id) {
      return videoGameService.getVideoGameById(id);
  }
  
+ //Créer un nouveau jeu vidéo
  @PostMapping("/admin/createVideoGame")
  public VideoGame createVideoGame(@RequestBody VideoGame videoGame) {
       return videoGameService.createVideoGame(videoGame);
  }
 
+ //Mettre à jour un jeu vidéo existant
  @PutMapping("/admin/updateVideoGame")
  public VideoGame updateVideoGame(@RequestParam Long id, @RequestBody VideoGame videoGameDetails) {
      return videoGameService.updateVideoGame(id, videoGameDetails);
  }
 
+ //Supprimer un jeu vidéo
  @DeleteMapping("/admin/deleteVideoGame")
  public VideoGame deleteVideoGame(@RequestParam Long id) {
      return videoGameService.deleteVideoGame(id);

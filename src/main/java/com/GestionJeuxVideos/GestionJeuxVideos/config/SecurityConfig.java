@@ -12,10 +12,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+// Configuration de la sécurité de l'api
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    //Configuration des règles d'accès aux endpoints
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -32,11 +34,13 @@ public class SecurityConfig {
         return http.build();
     }
 
+    //Encodage du mot de passe
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    //Utilisateur créé en dur pour les tests
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.builder()

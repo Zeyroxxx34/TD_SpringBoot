@@ -23,26 +23,31 @@ public class ReviewController {
  @Autowired
  private ReviewService reviewService;
 
+ //Récupérer la liste de tous les avis
  @GetMapping("/public/reviews")
  public List<Review> getAllReviews() {
      return reviewService.getAllReviews();
  }
 
+ //Récupérer un avis par son ID
  @GetMapping("/public/review")
  public Review getReviewById(@RequestParam Long id) {
      return reviewService.getReviewById(id);
  }
  
+ //Créer un nouvel avis
  @PostMapping("/admin/createReview")
  public Review createReview(@RequestBody Review review) {
       return reviewService.createReview(review);
  }
 
+ //Mettre à jour un avis existant
  @PutMapping("/admin/updateReview")
  public Review updateReview(@RequestParam Long id, @RequestBody Review reviewDetails) {
      return reviewService.updateReview(id, reviewDetails);
  }
 
+ //Supprimer un avis
  @DeleteMapping("/admin/deleteReview")
  public Review deleteReview(@RequestParam Long id) {
      return reviewService.deleteReview(id);

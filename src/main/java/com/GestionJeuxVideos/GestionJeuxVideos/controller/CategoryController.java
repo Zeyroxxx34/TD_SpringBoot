@@ -23,26 +23,31 @@ public class CategoryController {
  @Autowired
  private CategoryService categoryService;
 
+ //Récupérer la liste de toutes les catégories
  @GetMapping("/public/categories")
  public List<Category> getAllCategories() {
      return categoryService.getAllCategories();
  }
 
+ //Récupérer une catégorie par son ID
  @GetMapping("/public/category")
  public Category getCategoryById(@RequestParam Long id) {
      return categoryService.getCategoryById(id);
  }
  
+ //Créer une nouvelle catégorie
  @PostMapping("/admin/createCategory")
  public Category createCategory(@RequestBody Category category) {
       return categoryService.createCategory(category);
  }
 
+ //Mettre à jour une catégorie existante
  @PutMapping("/admin/updateCategory")
  public Category updateCategory(@RequestParam Long id, @RequestBody Category categoryDetails) {
      return categoryService.updateCategory(id, categoryDetails);
  }
 
+ //Supprimer une catégorie
  @DeleteMapping("/admin/deleteCategory")
  public Category deleteCategory(@RequestParam Long id) {
      return categoryService.deleteCategory(id);
