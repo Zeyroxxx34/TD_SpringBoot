@@ -40,7 +40,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    //Utilisateur créé en dur pour les tests
+    //Utilisateurs créés en dur pour les tests (un admin et un utuilisateur classique)
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails admin = User.builder()
