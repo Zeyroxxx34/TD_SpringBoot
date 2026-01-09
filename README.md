@@ -45,4 +45,8 @@ GestionJeuxVideos/
 
 Le projet est exécutable directement depuis l'IDE.
 
+URL du swagger de l'API : http://localhost:8080/swagger-ui/index.html
+Dans celui-ci sont détaillés les endpoints et les schémas.
+
 ```
+
